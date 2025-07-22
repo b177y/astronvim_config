@@ -1,10 +1,16 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize Mason
 
 ---@type LazySpec
 return {
   -- use mason-tool-installer for automatically installing Mason packages
+  {
+    "mason-org/mason.nvim",
+    -- overrides `require("mason-tool-installer").setup(...)`
+    opts = {
+      providers = { "mason.providers.client" },
+      registries = { "github:mason-org/mason-registry@2025-07-15-select-betty" },
+    },
+  },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     -- overrides `require("mason-tool-installer").setup(...)`
